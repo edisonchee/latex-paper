@@ -57,6 +57,7 @@ The content of this repository is licensed under the terms of the MIT License.
 
 ## Real-world implementations
 
++ [Moen Meets Rotemberg: An Earthly Model of the Divine Coincidence](https://arxiv.org/pdf/2401.12475v1.pdf) ([source code](https://arxiv.org/e-print/2401.12475v1))
 + [Modeling the Displacement of Native Workers by Immigrants](https://arxiv.org/pdf/2303.13319v2.pdf) ([source code](https://arxiv.org/e-print/2303.13319v2))
 + [u* = √uv](https://arxiv.org/pdf/2206.13012v1.pdf) ([source code](https://arxiv.org/e-print/2206.13012v1))
 + [Critical Values Robust to P-hacking](https://arxiv.org/pdf/2005.04141v7.pdf) ([source code](https://arxiv.org/e-print/2005.04141v7))
