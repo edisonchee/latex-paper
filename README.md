@@ -1,6 +1,6 @@
 # Minimalist LaTeX Template for Academic Papers
 
-This repository contains a [LaTeX](https://github.com/latex3/latex2e) template to create an academic paper. The template carefully follows typographical best practices and has a minimalist design.
+This repository contains a [LaTeX](https://github.com/latex3/latex2e) template to create an academic paper. The template carefully follows typographical best practices and has a minimalist design. The template is particularly well suited for research papers. It is designed so the papers are easy to scan and to read, both in print and on screen. 
 
 ## Documentation
 
@@ -10,18 +10,6 @@ The template is documented at https://pascalmichaillat.org/d2/.
 
 + The paper produced by the template can be viewed at https://pascalmichaillat.org/d2.pdf.
 + The online appendix produced by the template can be viewed at https://pascalmichaillat.org/d2a.pdf.
-
-## Features
-
-+ The font for text, roman math, and numbers is [Source Serif Pro](https://github.com/adobe-fonts/source-serif).
-+ The font for Greek and calligraphic math is [Euler](http://luc.devroye.org/fonts-26139.html).
-+ No colors are used in the text (only black) to reduce distraction, and so the paper prints well; colors are reserved for graphs.
-+ Margins, spacing, and font size are set for comfortable reading.
-+ Headings and captions are designed so the paper is easy to scan.
-+ Formatting is specified for figures and tables.
-+ Formatting is specified for appendix and a separate online appendix.
-+ Formatting is specified for references.
-+ All labels are formatted to make cross-referencing easy.
 
 ## Usage
 
@@ -34,7 +22,7 @@ The template is documented at https://pascalmichaillat.org/d2/.
 + The BibTeX style file `bibliography.bst` collects all the commands to format the bibliography. It must be included in the same folder as `paper.tex`. It can be modified to alter the bibliography's format. This style file is based on `econ.bst`, which was created by Shiro Takeda and is [available on GitHub](https://github.com/ShiroTakeda/econ-bst).
 + The file `paper.pdf` is not required to use the template. It only illustrate the output of the template. It will be overridden once `paper.tex` is compiled.
 
-### Online appendix
+## Online appendix
 
 The repository also includes files to produce an online appendix—in case the paper's appendix must be carved out into a separate, online appendix upon publication. An online appendix can be produced as follows:
 
@@ -49,7 +37,7 @@ The repository also includes files to produce an online appendix—in case the p
 
 ## Software
 
-The template was developed on a Mac with the MacTeX-2021 distribution, and it continues to work with the MacTeX-2023 distribution. Hopefully, it should also work on other machines and with other distributions.
+The template was developed, tested, and validated on a Mac with the MacTeX-2023 distribution. Hopefully, it should also work on other machines and with other distributions.
 
 ## License
 

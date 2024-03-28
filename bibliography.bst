@@ -1,624 +1,466 @@
-% Based on econ.bst by Shiro Takeda, version 2.1, time-stamp <2013-07-05 14:54:35>
+% ==== Customization ====
 
+% ---- Index number ----
 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%% Customization %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-% ---------------- Index number (as in plain.bst) ----------------
-
-%% Attach number index
-
+% Attach number index
 FUNCTION {bst.use.number.index}
-{ #0 }    % Do not use number index (default)
+{ #0 }    % Do not use number index
 % { #1 }  % Use number index
 
-%% The string before number index
-
+% String before number index
 FUNCTION {bst.number.index.pre}
-{ "[" }    % (default)
+{ "[" }
 
-%% The string after number index (adjustment is recommended)
-
+% String after number index (adjustment is recommended)
 FUNCTION {bst.number.index.post}
-{ "]\hskip1.0em " }    % (default)
+{ "]\hskip1.0em " }
 
-%% Maximum digit of number index
-
+% Maximum digit of number index
 FUNCTION {bst.number.index.digit}
 % { "1" }  % If the number of reference items < 10
-{ "2" }    % If the number of reference items < 100 (default)
+{ "2" }    % If the number of reference items < 100
 % { "3" }  % If the number of reference items >= 100
 
-%% Functions to adjust space & postion (adjust for fonts other than Computer Modern)
+% ---- Adjust space & postion (for fonts other than Computer Modern) ----
 
-% Setting for bst.number.index.digit = 1:
+% Setting for bst.number.index.digit = 1
 FUNCTION {bst.number.index.bibhang.one}
 { "2.05em" }
 
-% Setting for bst.number.index.digit = 2:
+% Setting for bst.number.index.digit = 2
 FUNCTION {bst.number.index.bibhang.ten}
 { "2.55em" } 
 
-% Setting for bst.number.index.digit = 3:
+% Setting for bst.number.index.digit = 3
 FUNCTION {bst.number.index.bibhang.hund}
 { "3.05em" }
 
+% ---- Order of references ----
 
-% ---------------- Order of references ----------------
-
-%% Sorting of references by authors or years
-
+% Sorting of references by authors or years
 FUNCTION {bst.sort.year}
-{ #0 }    % Author sorting: year is used as the sorting key after author (default)
+{ #0 }    % Author sorting: year is used as the sorting key after author
 % { #1 }  % Chronological sorting: year is used as the sorting key before author
 
-%% Chronological order
-
+% Chronological order
 FUNCTION {bst.reverse.year}
-{ #0 }    % Normal order: from old documents to recent documents (default)
+{ #0 }    % Normal order: from old documents to recent documents
 % { #1 }  % Reverse order: from recent documents to old documents
 
-%% Sorting of references by citation order
-
+% Sorting of references by citation order
 FUNCTION {bst.no.sort}
-{ #0 }      % References listed in author order (default)
+{ #0 }      % References listed in author order
 % { #1 }    % References listed in citation order
 
-%% Sorting of references by entry type (article, book, incollection etc.)
-
+% Sorting of references by entry type (article, book, incollection etc.)
 FUNCTION {bst.sort.entry.type}
-{ #0 }    % References listed in author order (default)
+{ #0 }    % References listed in author order
 % { #1 }  % References listed by entry type
 
-%% Use absorder field to sort items
+% Use absorder field to sort items
 % Order of priority to sort items: absorder -> author -> year -> order -> month -> title, where absorder and order fields are specific to econ.bst.
-
 FUNCTION {bst.notuse.absorder.field}
-{ #0 }    %  Use absorder field to sort items (default)
+{ #0 }    % Use absorder field to sort items
 % { #1 }  % Do not use absorder field to sort items
 
-%% Use order field to sort items (order field is specific to econ.bst)
-
+% Use order field to sort items (order field is specific to econ.bst)
 FUNCTION {bst.notuse.order.field}
-{ #0 }    %  Use order field to sort items (default)
+{ #0 }    % Use order field to sort items
 % { #1 }  % Do not use order field to sort items
 
+% ---- Author ----
 
-% ---------------- Author ----------------
-
-%% The string before author
-
+% String before author
 FUNCTION {bst.author.pre}
-% { "\textbf{" }
-{ "" }    % (default)
+{ "" }
 
-%% The string after author:
-
+% String after author
 FUNCTION {bst.author.post}
-% { ".}" }
-{ "." }    % (default)
+{ "." }
 
-%% Abbreviation of a succession of the same author's name by ---
-
+% Abbreviation of a succession of the same author's name by ----
 FUNCTION {bst.use.bysame}
 { #0 }    % Abbreviation is not used
-% { #1 }    % Abbreviation is used (default)
-% { #2 }    %  Abbreviation is used with alternative style
+% { #1 }    % Abbreviation is used
+% { #2 }    % Abbreviation is used with alternative style
 
-%% Definition of abbreviation command
-
+% Definition of abbreviation command
 FUNCTION {bst.bysame.definition}
-{ "\hskip.3em \leavevmode\rule[.5ex]{3em}{.3pt}\hskip0.5em" } % (default)
+{ "\hskip.3em \leavevmode\rule[.5ex]{3em}{.3pt}\hskip0.5em" }
 % { "\leavevmode\hbox to\leftmargin{\hrulefill\,\,}" } % If you set #2 to bst.use.bysame, use this option
 
-%% Order of fist & last names of authors
-
+% Order of fist & last names of authors
 FUNCTION {bst.author.name}
-{ #0 }    % First author: last-first | other authors: first-last (default)
+{ #0 }    % First author: last-first | other authors: first-last
 % { #1 }	% All authors: last-first
 % { #2 } % All authors: first-last
 
-%% Abbreviate first name of authors & editors
-
+% Abbreviate first name of authors & editors
 FUNCTION {bst.first.name.initial}
-{ #0 }    % full letters (default)
-% { #1 }    % initial letter only
+{ #0 }    % Full letters
+% { #1 }    % Initial letter only
 
-%% String used to separate author names in references (two authors)
-% String replacing _ in "Mr. A _ Mr. B "
-
+% String used to separate author names in references (two authors)
+% String replacing _ in "Prof. A _ Prof. B "
 FUNCTION {bst.and}
 { ", and " }
-% { " and " }    % (default)
 
-%% String used to separate author names in references (more than two authors)
-% String replacing _ in "Mr. A, Mr. B _ Mr. C"
-
+% String used to separate author names in references (more than two authors)
+% String replacing _ in "Prof. A, Prof. B _ Prof. C"
 FUNCTION {bst.ands}
-{ ", and " }    % (default)
+{ ", and " }
 
-%% String used to separate author names in citations (two authors)
-% String replacing _ in "Mr. A _ Mr. B "
-
+% String used to separate author names in citations (two authors)
+% String replacing _ in "Prof. A _ Prof. B "
 FUNCTION {bst.cite.and}
-{ " and " }    % (default)
+{ " and " }
 
-%% String used to separate author names in citations (more than two authors)
-% String replacing _ in "Mr. A, Mr. B _ Mr. C"
-
+% String used to separate author names in citations (more than two authors)
+% String replacing _ in "Prof. A, Prof. B _ Prof. C"
 FUNCTION {bst.cite.ands}
-{ ", and " }    % (default)
+{ ", and " }
 
-%% Author names in citations are abbreviated if the number of authors >= bst.and.others.num
-
+% Author names in citations are abbreviated if the number of authors >= bst.and.others.num
 FUNCTION {bst.and.others.num}
-% { #3 }    %  (default)
 { #4 }
 
-%% Strings used when abbreviating multiple authors in citations
-
+% Strings used when abbreviating multiple authors in citations
 FUNCTION {bst.and.others}
-{ " et~al." }    % (default)
+{ " et~al." }
 
+% ---- Title ----
 
-% ---------------- Title ----------------
-
-%% Decapitalize strings in title
-
+% Decapitalize strings in title
 FUNCTION {bst.title.lower.case}
-{ #0 }    % Do not decapitalize title (default)
+{ #0 }    % Do not decapitalize title
 % { #1 }   % Decapitalize title
 
-%% Hide title filed
-
+% Hide title filed
 FUNCTION {bst.hide.title}
-{ #0 }    % Title field is displayed (default)
+{ #0 }    % Title field is displayed
 % { #1 }  % Title field is hidden 
 
-%% The string before title
-
+% String before title
 FUNCTION {bst.title.pre}
-{ "``" }    % (default)
+{ "``" }
 
-%% The string after title
-
+% String after title
 FUNCTION {bst.title.post}
 { ".''" }
-% { ",''" }    % (default)
 
-%% The string before book title
-
+% String before book title
 FUNCTION {bst.book.pre}
-{ " \textit{" }    % (default)
+{ " \textit{" }
 
-%% The string after book title
-
+% String after book title
 FUNCTION {bst.book.post}
 { "}." }
-% { "}" }    % (default)
 
+% ---- Year ----
 
-% ---------------- Year ----------------
-
-%% Position of year
-
+% Position of year
 FUNCTION {bst.year.position}
-{ #0 }    % Right after author (default)
+{ #0 }    % Right after author
 % { #1 }  % Article: at the end | Nonarticle: at the end, before note field
 % { #2 }  % Article: after journal name | Nonarticle: at the end, before note field
 % { #3 }  % Article: after volume | Nonarticle: at the end, before note field
 
-%% The string before year only for articles
-
+% String before year only for articles
 FUNCTION {bst.year.pre}
 { " " }
-% { " (" }    % (default)
 
-%% The string after year only for articles
-
+% String after year only for articles
 FUNCTION {bst.year.post}
 { ". " }
-% { ") " }    % (default)
 
-%% The string after year for nonarticles (book, incollection)
-
+% String after year for nonarticles (book, incollection)
 FUNCTION {bst.year.na.pre}
 { " " }
-% { " (" }    % (default)
 
-%% The string after year for nonarticles (book, incollection)
-
+% String after year for nonarticles (book, incollection)
 FUNCTION {bst.year.na.post}
 { ". " }
-% { ") " }    % (default)
 
+% ---- Month ----
 
-% ---------------- Month ----------------
-
-%% Hide month
-
+% Hide month
 FUNCTION {bst.hide.month}
-% { #0 }  % Show month field (default)
+% { #0 }  % Show month field
 { #1 }    % Hide month field
 
-%% The string before month
-
+% String before month
 FUNCTION {bst.month.pre}
-{ ", " }    % (default)
+{ ", " }
 
-%% The string after month
-
+% String after month
 FUNCTION {bst.month.post}
-{ "" }    % (default)
+{ "" }
 
+% ---- Booktitle & collection ----
 
-% ---------------- Booktitle & collection ----------------
-
-%% The string before booktitle
-
+% String before booktitle
 FUNCTION {bst.btitle.pre}
-{ " \textit{" }    % (default)
+{ " \textit{" }
 
-%% The string after booktitle
-
+% String after booktitle
 FUNCTION {bst.btitle.post}
 { "}," }
-% { "}" }    % (default)
 
-%% String for "in" collection
-
+% String for "in" collection
 FUNCTION {bst.in}
 { " In " }
-% { " in " }    % (default)
 
+% ---- Journal name ----
 
-% ---------------- Journal name ----------------
-
-%% The string before journal name
-
+% String before journal name
 FUNCTION {bst.journal.pre}
-{ " \textit{" }    % (default)
+{ " \textit{" }
 
-%% The string after journal name
-
+% String after journal name
 FUNCTION {bst.journal.post}
-{ "}" }    % (default)
+{ "}" }
 
+% ---- Editor ----
 
-% ---------------- Editor ----------------
-
-%% String used to separate editor names in references (two editors)
-% String replacing _ in "Mr. A _ Mr. B "
-
+% String used to separate editor names in references (two editors)
+% String replacing _ in "Prof. A _ Prof. B "
 FUNCTION {bst.editor.and}
-{ " and " }  % (default)
+{ " and " }
 
-%% String used to separate editor names in references (more than two editors)
-% String replacing _ in "Mr. A, Mr. B _ Mr. C"
-
+% String used to separate editor names in references (more than two editors)
+% String replacing _ in "Prof. A, Prof. B _ Prof. C"
 FUNCTION {bst.editor.ands}
-{ ", and " }    % (default)
+{ ", and " }
 
-%% The string that indicates multiple editors
-
+% String that indicates multiple editors
 FUNCTION {bst.editors}
-{ " edited " }    % (default)
+{ " edited " }
 
-%% The string that indicates single editor
-
+% String that indicates single editor
 FUNCTION {bst.editor}
-{ " edited " }    % (default)
+{ " edited " }
 
-%% Order of editor & booktitle in incollection & inproceedings
-
+% Order of editor & booktitle in incollection & inproceedings
 FUNCTION {bst.editor.btitle.order}
 { #1 }		% booktitle -> editors 
-% { #0 }    % editors -> booktitle (default)
+% { #0 }    % editors -> booktitle
 
+% ---- Edition ----
 
-% ---------------- Edition ----------------
-
-%% The string before edition
-
+% String before edition
 FUNCTION {bst.edition.pre}
-% { ". " }    % (default)
 { " " }
 
-%% The string after edition
-
+% String after edition
 FUNCTION {bst.edition.post}
-{ " ed." }    % (default)
+{ " ed." }
 
+% ---- Volume ----
 
-% ---------------- Volume ----------------
-
-%% The string before journal volume
-
+% String before journal volume
 FUNCTION {bst.volume.pre}
 { " " }
-% { ", vol. " }    % (default)
-% { ", " }
 
-%% The string before book volume
-
+% String before book volume
 FUNCTION {bst.bvolume.pre}
-%{ ", " }
-{ ", vol. " }    % (default)
+{ ", vol. " }
 
-%% The string after volume
-
+% String after volume
 FUNCTION {bst.volume.post}
-{ "" }    % (default)
+{ "" }
 
+% ---- Issue number ----
 
-% ---------------- Issue number ----------------
-
-%% Hide issue number
-
+% Hide issue number
 FUNCTION {bst.hide.number}
-{ #0 }    %  Show issue number (default)
-% { #1 }    %  Hide issue number
+{ #0 }    % Show issue number
+% { #1 }    % Hide issue number
 
-%% The string before issue number
-
+% String before issue number
 FUNCTION {bst.number.pre}
 { " (" }
-% { ", No. " }    % (default)
 
-%% The string after issue number
-
+% String after issue number
 FUNCTION {bst.number.post}
 { ")" }
-% { "" }    % (default)
 
+% ---- Chapter ----
 
-% ---------------- Chapter ----------------
-
-%% The string before chapter
-
+% String before chapter
 FUNCTION {bst.chapter.pre}
-{ ", chap." }    % (default)
+{ ", chap." }
 
-%% The string after chapter
-
+% String after chapter
 FUNCTION {bst.chapter.post}
-{ "" }    % (default)
+{ "" }
 
+% ---- Page ----
 
-% ---------------- Page ----------------
-
-%% The string before page (multiple pages)
-
+% String before page (multiple pages)
 FUNCTION {bst.pages.pre}
 { ": " }
-% { ", pp." }    % (default)
 
-%% The string before page (single page)
-
+% String before page (single page)
 FUNCTION {bst.page.pre}
 { ": " }
-% { ", p." }    % (default)
 
-%% The string before page in books & collections (multiple pages)
-
+% String before page in books & collections (multiple pages)
 FUNCTION {bst.bpages.pre}
 { ", " }
-% { ", pp." }    % (default)
 
-%% The string before page in books & collections (single page)
-
+% String before page in books & collections (single page)
 FUNCTION {bst.bpage.pre}
 { ", " }
-% { ", p." }    % (default)
 
-%% The string after page (multiple pages)
-
+% String after page (multiple pages)
 FUNCTION {bst.pages.post}
-{ "" }    % (default)
+{ "" }
 
-%% The string after page (single page)
-
+% String after page (single page)
 FUNCTION {bst.page.post}
-{ "" }    % (default)
+{ "" }
 
+% ---- Address ----
 
-% ---------------- Address ----------------
-
-%% The string before address
-
+% String before address
 FUNCTION {bst.address.pre}
-% { ", " }    % (default)
 { ". " }
 
-%% The string after address
-
+% String after address
 FUNCTION {bst.address.post}
-{ "" }    % (default)
+{ "" }
 
-%% Order of address & publisher
-
+% Order of address & publisher
 FUNCTION {bst.address.position}
-{ #0 }    % Address before publisher (default)
+{ #0 }    % Address before publisher
 % { #1 }    % Address after publisher 
 
+% ---- Publisher ----
 
-% ---------------- Publisher ----------------
-
-%% The string before publisher
-
+% String before publisher
 FUNCTION {bst.publisher.pre}
-{ ": " }    % (default)
+{ ": " }
 
-%% The string after publisher
-
+% String after publisher
 FUNCTION {bst.publisher.post}
-% { ", " }
-{ "." }    % (default)
+{ "" }
 
+% ---- Series ----
 
-% ---------------- Series ----------------
-
-%% The string before series
-
+% String before series
 FUNCTION {bst.series.pre}
-{ ", " }    % (default)
-
-%% The string after series
-
-FUNCTION {bst.series.post}
-{ "" }    % (default)
-
-
-% ---------------- Organization ----------------
-
-%% The string before organization
-
-FUNCTION {bst.organization.pre}
-{ ", " }    % (default)
-
-%% The string after organization
-
-FUNCTION {bst.organization.post}
-{ "" }    % (default)
-
-
-% ---------------- School ----------------
-
-%% The string before school
-
-FUNCTION {bst.school.pre}
-{ ", " }    % (default)
-
-%% The string after school
-
-FUNCTION {bst.school.post}
-{ "" }    % (default)
-
-
-% ---------------- Institution ----------------
-
-%% The string before institution
-
-FUNCTION {bst.institution.pre}
-{ ", " }    % (default)
-
-%% The string after institution
-
-FUNCTION {bst.institution.post}
-{ "" }    % (default)
-
-
-% ---------------- Howpublished ----------------
-
-%% The string before howpublished
-
-FUNCTION {bst.howpublished.pre}
-{ " " }    % (default)
-
-%% The string after howpublished
-
-FUNCTION {bst.howpublished.post}
-{ "" }    % (default)
-
-
-% ---------------- URL ----------------
-
-%% Show or hide url
-
-FUNCTION {bst.show.url}
-{ #0 }    %  Do not show url field
-% { #1 }    %  Show url field (default)
-
-%% The string before url
-
-FUNCTION {bst.url.pre}
-% { ", URL: " }	% (default)
 { ", " }
 
-%% The string after url
+% String after series
+FUNCTION {bst.series.post}
+{ "" }
 
+% ---- Organization ----
+
+% String before organization
+FUNCTION {bst.organization.pre}
+{ ", " }
+
+% String after organization
+FUNCTION {bst.organization.post}
+{ "" }
+
+% ---- School ----
+
+% String before school
+FUNCTION {bst.school.pre}
+{ ", " }
+
+% String after school
+FUNCTION {bst.school.post}
+{ "" }
+
+% ---- Institution ----
+
+% String before institution
+FUNCTION {bst.institution.pre}
+{ ", " }
+
+% String after institution
+FUNCTION {bst.institution.post}
+{ "" }
+
+% ---- Howpublished ----
+
+% String before howpublished
+FUNCTION {bst.howpublished.pre}
+{ " " }
+
+% String after howpublished
+FUNCTION {bst.howpublished.post}
+{ "" }
+
+% ---- URL ----
+
+% Show or hide url
+FUNCTION {bst.show.url}
+% { #0 }    % Do not show url field
+{ #1 }    % Show url field
+
+% String before url
+FUNCTION {bst.url.pre}
+{ ". \url{" }
+
+% String after url
 FUNCTION {bst.url.post}
-{ "" }    % (default)
+{ "}" }
 
+% ---- Access date for URL (if "access" field is present) ----
 
-% ---------------- Access date for URL (only if "access" field is present in bib files) ----------------
-
-%% The string before access
-
+% String before access
 FUNCTION {bst.access.pre}
-{ ", accessed on " } % (default)
+{ ", accessed on " }
 
-%% The string after access
-
+% String after access
 FUNCTION {bst.access.post}
-{ "" }    % (default)
+{ "" }
 
+% ----  DOI (if "doi" field is present) ----
 
-% ----------------  DOI (only if "doi" field is present in bib files) ----------------
-
-%% Show or hide DOI
-
+% Show or hide DOI
 FUNCTION {bst.show.doi}
-{ #0 }    %  Do not show DOI field
-% { #1 }    %  Show DOI field (default)
+{ #0 }    % Do not show DOI field
+% { #1 }    % Show DOI field
 
-%% The string before DOI
-
+% String before DOI
 FUNCTION {bst.doi.pre}
-% { ", DOI: \url{https://doi.org/" } % (default)
-{ ". DOI: \url{https://doi.org/" } % (default)
+{ ". \url{https://doi.org/" }
+% { ", \href{https://doi.org/" doi * "}{\urlstyle{rm} \nolinkurl{" * }  % Original string in econ.bst
 
-%% The string after DOI
-
+% String after DOI
 FUNCTION {bst.doi.post}
-{ "}" }    % (default)
+{ "}" }
+% { "}}" }    % Original string in econ.bst
 
 
-% ---------------- Other functions ----------------
+% ---- Other functions ----
 
-%% The string before note
-
+% String before note
 FUNCTION {bst.note.pre}
-% { ", " }    % (default)
-{ ". " }    % (default)
+{ ". " }
 
-%% The string after note
-
+% String after note
 FUNCTION {bst.note.post}
-{ "" }    % (default)
+{ "" }
 
-%% The string that represents Technical report
-
+% String that represents Technical report
 FUNCTION {bst.techrep}
-{ " Tech. Rep." }    % (default)
+{ "Technical report" }
 
-%% The string that represents master thesis
-
+% String that represents master thesis
 FUNCTION {bst.mthesis}
-{ " Master's thesis" }    % (default)
+{ " Master's thesis" }
 
-%% The string that represents phd thesis
-
+% String that represents phd thesis
 FUNCTION {bst.phdthesis}
-{ " PhD dissertation" }    % (default)
+{ " PhD dissertation" }
 
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% .BST code %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
+% ==== .BST code ====
 
 FUNCTION {bst.first}
 { "1st" }
@@ -648,7 +490,7 @@ FUNCTION {bst.th}
 { "th" }
 
 
-% ---------- Memo about function definition ----------
+% ---- Memo about function definition ----
 %
 % "a" 'b := indicates substituting string "a" for variable b.
 % Note that integer number is expressed as # + integer in bst file.
@@ -667,51 +509,49 @@ FUNCTION {bst.th}
 % About the definition of a function with more than two arguments, see the
 % definition of "chop.word".
 %
-% -----------------------------------------------
 
 
 ENTRY
 
-  %%% Declaration of field
-  { access address author booktitle chapter doi edition editor howpublished
-    institution journal key month note number organization pages publisher
-    school series title type url volume year
+% Declaration of field
+{ access address author booktitle chapter doi edition editor howpublished
+  institution journal key month note number organization pages publisher
+  school series title type url volume year
 
-    % Fields specific to econ.bst
-    order absorder
-  }
+  % Fields specific to econ.bst
+  order absorder
+}
 
-  % Definition of entry variable.  The entry variable is a variable which has
-  % different values according to different entries.
+% Definition of entry variable.  The entry variable is a variable which has different values according to different entries.
 
-  %% Integer entry variable:
-  { order.cited }
+% Integer entry variable:
+{ order.cited }
 
-  %% String entry variable
-  { label cyear flabel alabel extra.label sort.label sort.label.abb
-    extra.label.bysame }
+% String entry variable
+{ label cyear flabel alabel extra.label sort.label sort.label.abb
+  extra.label.bysame }
 
-%%% Explanation of variables.
-
+% ---- Explanation of variables ----
+%
 % alabel: author (editor) name (abbreviated form) used for citation part.
 % Not used for reference part.
-
+%
 % flabel: author (editor) name (full name form) used for citation part.
 % Not used for reference part.
-
+%
 % sort.label: author (editor) name (full name form) used for sorting
 % entries (NB: this is not used for sorting in the current code).
-
+%
 % sort.label.abb: author (editor) name (abbreviated form) used for sorting
 % entries.
-
+%
 % sort.key$: key used for sorting entries.
 % It usually has the string of author - year - title - month.
-    
+% 
 
-%%% Declaration of variables:
+% ---- Declaration of variables ----
 
-%% String global variables:
+% String global variables:
 STRINGS { s t tt }
 STRINGS { year.num }
 STRINGS { preone preten }
@@ -720,7 +560,7 @@ STRINGS { hang }
 STRINGS { item.type }
 STRINGS { tempa tempb }
 
-%% Integer global variables:
+% Integer global variables:
 INTEGERS { nameptr namesleft numnames name.num }
 INTEGERS { multiresult }
 INTEGERS { index }
@@ -730,7 +570,8 @@ INTEGERS { output.state before.all mid.sentence after.sentence after.block }
 INTEGERS { last.period.comma }
 INTEGERS { len1.aer len2.aer i.aer }
 
-%%% Definition of functions:
+% ---- Definition of functions ----
+
 FUNCTION {not}
 {   { #0 }
     { #1 }
@@ -749,7 +590,8 @@ FUNCTION {or}
   if$
 }
 
-%%% Initialize variables:
+% ---- Initialize variables ----
+
 FUNCTION {init.state.consts}
 { #0 'before.all :=
   #1 'mid.sentence :=
@@ -757,9 +599,8 @@ FUNCTION {init.state.consts}
   #3 'after.block :=
 }
 
-%%% Remove comma and add period:
-%
-%
+% ---- Remove comma and add period ----
+
 FUNCTION {add.period.x}
 { duplicate$
   #-1 #1 substring$ "," =
@@ -831,8 +672,7 @@ FUNCTION {output.nonnull}
   s
 }
 
-%%% If the last character is period or comma, set non-zero to
-%%% last.period.comma.
+% If the last character is period or comma, set non-zero to last.period.comma
 FUNCTION {period.comma.p}
 { duplicate$ 't :=
   t #-1 #1 substring$ "." = 
@@ -849,7 +689,7 @@ FUNCTION {period.comma.p}
   if$
 }
 
-%%% remove unnecessary comma.
+% Remove unnecessary comma
 FUNCTION {remove.pre.comma}
 { 's :=
   s empty$
@@ -866,8 +706,7 @@ FUNCTION {remove.pre.comma}
   if$
 }
 
-%%% output.nonnull.nocomma is the same as output.nonnull except that it does
-%%% not add commas even in mid.sentence.
+% Output.nonnull.nocomma is the same as output.nonnull except that it does not add commas even in mid.sentence
 FUNCTION {output.nonnull.nocomma}
 { 's :=
   output.state mid.sentence =
@@ -894,29 +733,12 @@ FUNCTION {output.nonnull.nocomma}
   if$
 }
 
-% Not used in the current econ.bst.
-% FUNCTION {output}
-% { duplicate$ empty$
-%     'pop$
-%     'output.nonnull
-%   if$
-% }
-
 FUNCTION {output.nocomma}
 { duplicate$ empty$
     'pop$
     'output.nonnull.nocomma
   if$
 }
-
-% Not used in the current econ.bst.
-% FUNCTION {output.check}
-% { 't :=
-%   duplicate$ empty$
-%     { pop$ "empty " t * " in " * cite$ * warning$ }
-%     'output.nonnull
-%   if$
-% }
 
 FUNCTION {output.check.nocomma}
 { 't :=
@@ -926,19 +748,8 @@ FUNCTION {output.check.nocomma}
   if$
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Format in bbl file:
+% ---- Add period and newline ----
 
-% \harvarditem[Brezis et~al.]{Brezis, Krugman and
-%   Tsiddon}{1993}{brezis93:_leapf_inter_compet}
-% Brezis, Elise~S., Paul~R. Krugman, and Daniel Tsiddon  (1993) ``Leapfrogging in
-%   International Competition: A Theory of Cycles in National Technological
-%   Leadership.'', {\em American Economic Review.}, Vol.~83. No.~5. pp.
-%   1211--1219.
-
-% \harvarditem[abbreviated citation]{full citation}{year}{keyword} ...
-
-%%% Add period and newline.
 FUNCTION {fin.entry}
 { add.period.x
   write$
@@ -977,7 +788,8 @@ FUNCTION {field.or.null}
   if$
 }
 
-%%% booktitle
+% ---- Booktitle ----
+
 FUNCTION {format.btitle}
 { booktitle empty$
     { "" }
@@ -985,7 +797,8 @@ FUNCTION {format.btitle}
   if$
 }
 
-%%% journal
+% ---- Journal ----
+
 FUNCTION {format.journal}
 { journal empty$
     { "" }
@@ -993,7 +806,8 @@ FUNCTION {format.journal}
   if$
 }
 
-%%% title for book
+% ---- Title for book ----
+
 FUNCTION {format.book}
 { title empty$
     { "" }
@@ -1001,11 +815,13 @@ FUNCTION {format.book}
   if$
 }
 
+% ---- URL ----
+
 FUNCTION {format.url}
 { url empty$
     { "" }
     { type$ "online" = bst.show.url or
-        { bst.url.pre "\url{" * url * "}" * bst.url.post *
+        { bst.url.pre * url * bst.url.post *
           access empty$
              { "" * }
              { bst.access.pre * access * bst.access.post * }
@@ -1017,6 +833,8 @@ FUNCTION {format.url}
   if$
 }
 
+% ---- DOI ----
+
 FUNCTION {format.doi}
 { doi empty$ bst.show.doi not or
     { "" }
@@ -1024,14 +842,14 @@ FUNCTION {format.doi}
   if$
 }
 
-%%% author and editor
+% ---- Author and editor ----
 
-%%% name
+% Name
 FUNCTION {format.names}
 { 's :=
   % insert 1 to nameptr.
   #1 'nameptr :=
-  % Set the number of authors to numnames.
+  % Set the number of authors to numnames
   s num.names$ 'numnames :=
   numnames 'namesleft :=
   % Repeat if namesleft > 0
@@ -1053,7 +871,7 @@ FUNCTION {format.names}
   	}
        if$
      }
-     % The second or later authors
+     % Second or later authors
      { bst.author.name #0 =
        bst.author.name #2 =
        or
@@ -1072,7 +890,7 @@ FUNCTION {format.names}
     if$
 
     nameptr #1 >
-      % The second or later authors
+      % Second or later authors
       { namesleft #1 >
           { ", " * t * }
           { t "others" =
@@ -1094,7 +912,7 @@ FUNCTION {format.names}
   while$
 }
 
-%%% editor
+% Editor
 FUNCTION {format.editornames}
 { 's :=
   #1 'nameptr :=
@@ -1128,7 +946,7 @@ FUNCTION {format.editornames}
   while$
 }
 
-% remove successive periods (commas) from author
+% Remove successive periods (commas) from author
 FUNCTION {remove.ss.period.auth}
 { 's :=
   s format.names 'tempa :=
@@ -1147,13 +965,8 @@ FUNCTION {remove.ss.period.auth}
 FUNCTION {compare.names.aer}
 { 's :=
   'tempa :=
-
-%   "current.author = " s * "\\" * write$ newline$
-%   "prev.author = " tempa * "\\" * write$ newline$
-
   tempa num.names$ 'len1.aer :=  % len1 = the number of previous authors
   s num.names$ 'len2.aer :=         % len2 = the number of current authors
-
 % len1.aer := min(len1.aer,len2.aer)
 % len1 -> min{ the number of previous authors, the number of current authors }
   len1.aer len2.aer >
@@ -1161,8 +974,7 @@ FUNCTION {compare.names.aer}
     { }
   if$
 
-% start with an empty string, then while the components are the same
-% add "\bysame"
+% Start with an empty string, then while the components are the same add "\bysame"
   ""
   #1 'i.aer :=
 
@@ -1181,7 +993,7 @@ FUNCTION {compare.names.aer}
     }
   while$
 
-% add the rest of the second string
+% Add the rest of the second string
   { i.aer len2.aer > not }
     { #1 i.aer <
         { " and " * }
@@ -1193,7 +1005,7 @@ FUNCTION {compare.names.aer}
   while$
 }
 
-%%% author
+% Author
 FUNCTION {format.authors}
 { author empty$
     { "" }
@@ -1210,7 +1022,7 @@ FUNCTION {format.authors}
   if$
 }
 
-%%% editor
+% Editor
 FUNCTION {format.editors}
 { editor empty$
     { "" }
@@ -1231,6 +1043,7 @@ FUNCTION {format.editors}
   if$
 }
 
+% Author (alternative)
 FUNCTION {format.authors.alt}
 { author empty$
     { "" }
@@ -1242,7 +1055,7 @@ FUNCTION {format.authors.alt}
   if$
 }
 
-%%% editor
+% Editor (alternative)
 FUNCTION {format.editors.alt}
 { editor empty$
     { "" }
@@ -1258,7 +1071,7 @@ FUNCTION {format.editors.alt}
   if$
 }
 
-%%% format.in.ed.booktitle
+% Format.in.ed.booktitle
 FUNCTION {format.editors.x}
 { editor empty$
     { "" }
@@ -1283,7 +1096,7 @@ FUNCTION {format.editors.x}
   if$
 }
 
-%%% Remove commas in the cases like "?." and "?,".
+% Remove commas in the cases like "?." and "?,".
 FUNCTION {remove.irrelevant.period.comma}
 { 's :=
   s empty$
@@ -1312,7 +1125,10 @@ FUNCTION {remove.irrelevant.period.comma}
   if$
 }
 
-%%% title
+
+% ---- Title ----
+
+% Title
 FUNCTION {format.title.sub}
 { bst.title.lower.case #0 =
      { bst.title.pre title * bst.title.post * }
@@ -1320,7 +1136,7 @@ FUNCTION {format.title.sub}
   if$
 }
 
-%%% title
+% Title
 FUNCTION {format.title}
 { title empty$
   bst.hide.title #0 = not or
@@ -1329,7 +1145,7 @@ FUNCTION {format.title}
   if$
 }
 
-%%% title for misc.
+% Title for misc.
 FUNCTION {format.misc.title}
 { title empty$
     { "" }
@@ -1337,11 +1153,26 @@ FUNCTION {format.misc.title}
   if$
 }
 
+% ---- Year ----
+
+FUNCTION {format.year}
+{ year empty$
+    { "there's no year in " cite$ * warning$
+      ", " }
+    { type$ "article" =
+        { bst.year.pre year * extra.label * bst.year.post * }
+        { bst.year.na.pre year * extra.label * bst.year.na.post * }
+      if$
+    }
+  if$
+}
+
+% ---- Pages ----
+
 % Convert "-" to "--" (for pages field)
 FUNCTION {n.dashify}
 { 't :=
   ""
-  %% while$
   { t empty$ not }
   { t #1 #1 substring$ "-" =
       { t #1 #2 substring$ "--" = not
@@ -1364,20 +1195,7 @@ FUNCTION {n.dashify}
   while$
 }
 
-%%% year
-FUNCTION {format.year}
-{ year empty$
-    { "there's no year in " cite$ * warning$
-      ", " }
-    { type$ "article" =
-        { bst.year.pre year * extra.label * bst.year.post * }
-        { bst.year.na.pre year * extra.label * bst.year.na.post * }
-      if$
-    }
-  if$
-}
-
-%%% page for book
+% Page for book
 FUNCTION {format.book.pages}
 { pages empty$
     { "" }
@@ -1385,7 +1203,7 @@ FUNCTION {format.book.pages}
   if$
 }
 
-%%% Attach tie for the string with two or less characters.
+% Attach tie for the string with two or less characters.
 FUNCTION {tie.or.space.connect}
 { duplicate$ text.length$ #3 <
     { "~" }
@@ -1401,22 +1219,24 @@ FUNCTION {either.or.check}
   if$
 }
 
-%%% volume for book
+% ---- Volume, number, series ----
+
+% Volume for book
 FUNCTION {format.bvolume}
 { volume empty$
     { "" }
     { bst.bvolume.pre volume * bst.volume.post *
       series empty$
         'skip$
-        %% If there is series field
+        % If there is series field
         { " of " * series * bst.series.post * }
       if$
-%       "volume and number" number either.or.check
+% "volume and number" number either.or.check
     }
   if$
 }
 
-%%% series
+% Series
 FUNCTION {output.series}
 { series empty$
     { "" }
@@ -1424,7 +1244,7 @@ FUNCTION {output.series}
  if$
 }
 
-%%% number and series
+% Number and series
 FUNCTION {format.number.series}
 { volume empty$
     { number empty$
@@ -1450,7 +1270,7 @@ FUNCTION {format.number.series}
   if$
 }
 
-%%% Number or not.
+% Number or not.
 FUNCTION {is.num}
 { chr.to.int$
   duplicate$ "0" chr.to.int$ < not
@@ -1475,8 +1295,7 @@ FUNCTION {extract.num}
   if$
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%      edition
+% ---- Edition ----
 
 % Convert edition to 1st, 2nd, 3rd, 4th etc
 FUNCTION {eng.ord}
@@ -1529,7 +1348,7 @@ FUNCTION {convert.edition}
   if$
 }
 
-%%% edition
+% Edition
 FUNCTION {format.edition}
 { edition empty$
     { "" }
@@ -1541,7 +1360,9 @@ FUNCTION {format.edition}
   if$
 }
 
-%%% month
+% ---- Dates ----
+
+% Month
 FUNCTION {format.month}
 { month empty$
   bst.hide.month #0 = not or
@@ -1550,12 +1371,14 @@ FUNCTION {format.month}
   if$
 }
 
-%%% year and month
+% Year and month
 FUNCTION {format.date}
 { format.month format.year *
 }
 
-%%% Is multiple pages like 1-100?
+% ---- Pages ----
+
+% Is multiple pages like 1-100?
 FUNCTION { multi.page.check }
 { 't :=
   #0 'multiresult :=
@@ -1576,7 +1399,7 @@ FUNCTION { multi.page.check }
   multiresult
 }
 
-%%% pages
+% Pages
 FUNCTION {format.pages}
 { pages empty$
     { "" }
@@ -1599,7 +1422,7 @@ FUNCTION {format.bpages}
  if$
 }
 
-%%% number
+% Number
 FUNCTION {format.number}
 { number empty$
   bst.hide.number #0 = not or
@@ -1608,7 +1431,7 @@ FUNCTION {format.number}
   if$
 }
 
-%%% volume
+% Volume
 FUNCTION {format.volume}
 { volume empty$
     'skip$
@@ -1621,48 +1444,48 @@ FUNCTION {format.volume}
   if$
 }
 
-%%% number, page
+% Number, page
 FUNCTION {format.number.pages}
 { format.number format.pages * }
 
-%%% volume, page
+% Volume, page
 FUNCTION {format.volume.pages}
 { format.volume format.pages * }
 
-%%% volume, number, page
+% Volume, number, page
 FUNCTION {format.volume.number.pages}
 { format.volume format.number * format.pages * }
 
 % volume, number, page
 FUNCTION {format.vol.num.pages}
 { volume empty$
-    %% volume is empty.
+    % Volume is empty
     { number empty$
-        %% number is empty.
+        % Number is empty
         { pages empty$
             % warning
             { "there is no volume, number, and pages in " cite$ * warning$ "" } 
             { "" format.pages * }
          if$
         }
-        %% number is not empty.
+        % Number is not empty
         % warning
         { "there's a number but no volume in " cite$ * warning$
           format.number.pages }
      if$
     }
-    %% volume is not empty.
+    % Volume is not empty
     { number empty$
-        %% number is empty.
+        % Number is empty
         { format.volume.pages }
-        %% number is not empty.
+        % Number is not empty
         { format.volume.number.pages }
      if$
     }
   if$
 }
 
-%%% chapter
+% Chapter
 FUNCTION {format.chapter}
 { chapter empty$
     { "" }
@@ -1674,7 +1497,7 @@ FUNCTION {format.chapter}
   if$
 }
 
-%%% chapter, pages
+% Chapter, pages
 FUNCTION {format.chapter.pages}
 { chapter empty$
     { pages empty$
@@ -1690,7 +1513,7 @@ FUNCTION {format.chapter.pages}
   if$
 }
 
-%%% editor and booktitle
+% Editor and booktitle
 FUNCTION {format.in.ed.booktitle}
 { booktitle empty$
     { "" }
@@ -1706,7 +1529,7 @@ FUNCTION {format.in.ed.booktitle}
   if$
 }
 
-%%% howpublished
+% Howpublished
 FUNCTION {format.howpublished}
 { howpublished empty$
     { "" }
@@ -1714,7 +1537,7 @@ FUNCTION {format.howpublished}
   if$
 }
 
-%%% address
+% Address
 FUNCTION {format.address}
 { address empty$
     { "" }
@@ -1722,7 +1545,7 @@ FUNCTION {format.address}
   if$
 }
 
-%%% publisher
+% Publisher
 FUNCTION {format.publisher}
 { publisher empty$
     { "" }
@@ -1730,7 +1553,7 @@ FUNCTION {format.publisher}
   if$
 }
 
-%%% organization
+% Organization
 FUNCTION {format.organization}
 { organization empty$
     { "" }
@@ -1738,7 +1561,7 @@ FUNCTION {format.organization}
   if$
 }
 
-%% publisher and address
+% Publisher and address
 FUNCTION {output.publisher.address}
 { address empty$
     { format.publisher "publisher" output.check.nocomma }
@@ -1752,18 +1575,18 @@ FUNCTION {output.publisher.address}
   if$
 }
 
-%% address, organization, publisher
+% Address, organization, publisher
 FUNCTION {output.address.organization.publisher}
 { address empty$
-    %% address is empty
+    % Address is empty
     { organization empty$
-        %% organization is empty
+        % Organization is empty
         { publisher empty$
             'skip$
             { format.publisher "publisher" output.check.nocomma }
           if$
         }
-        %% organization is not empty
+        % Organization is not empty
         { publisher empty$
             { format.organization "organization" output.check.nocomma }
             { format.organization "organization" output.check.nocomma
@@ -1772,13 +1595,13 @@ FUNCTION {output.address.organization.publisher}
         }
      if$
     }
-    %% address is not empty
+    % Address is not empty
     { organization empty$
-        %% organization is empty
+        % Organization is empty
         { publisher empty$
-            %% publisher is empty
+            % Publisher is empty
             { format.address output.nocomma }
-            %% publisher is not empty
+            % Publisher is not empty
             { bst.address.position #0 =
                 { format.address output.nocomma
                   format.publisher "publisher" output.check.nocomma }
@@ -1788,12 +1611,12 @@ FUNCTION {output.address.organization.publisher}
             }
          if$
         }
-        %% organization is not empty
+        % Organization is not empty
         { publisher empty$
-            %% publisher is empty
+            % Publisher is empty
             { format.organization "organization" output.check.nocomma
               format.address output.nocomma }
-            %% publisher is not empty
+            % Publisher is not empty
             { format.organization "organization" output.check.nocomma
               bst.address.position #0 = 
                 { format.address output.nocomma
@@ -1809,7 +1632,7 @@ FUNCTION {output.address.organization.publisher}
   if$
 }
 
-%%% misc
+% Misc
 FUNCTION {empty.misc.check}
 { author empty$ title empty$ howpublished empty$
   month empty$ year empty$ note empty$
@@ -1829,7 +1652,8 @@ FUNCTION {format.thesis.type}
 
 FUNCTION {format.tr.number}
 { type empty$
-    { "Technical Report" }
+    { "" }
+    % { bst.techrep }
     { " " type * }
   if$
   number empty$
@@ -1838,15 +1662,15 @@ FUNCTION {format.tr.number}
   if$
 }
 
-%%% phdthesis
+% Phdthesis
 FUNCTION {format.phd}
 { bst.phdthesis }
 
-%%% mastersthesis
+% Mastersthesis
 FUNCTION {format.mthesis}
 { bst.mthesis }
 
-%%% school
+% School
 FUNCTION {format.school}
 { school empty$
     { "" }
@@ -1854,7 +1678,7 @@ FUNCTION {format.school}
   if$
 }
 
-%%% institution
+% Institution
 FUNCTION {format.institution}
 { institution empty$
     { "" }
@@ -1862,7 +1686,7 @@ FUNCTION {format.institution}
   if$
 }
 
-%%% remove first ? characters.
+% Remove first ? characters.
 FUNCTION {chop.word}
 { 's :=
   'len :=
@@ -1879,8 +1703,7 @@ FUNCTION {format.note}
   if$
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%        \havarditem
+% ---- \havarditem ----
 
 FUNCTION {output.bibitem}
 { newline$
@@ -1935,8 +1758,7 @@ FUNCTION {output.bibitem}
  if$
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%        article
+% ---- Article ----
 
 FUNCTION {article}
 { output.bibitem
@@ -1966,8 +1788,7 @@ FUNCTION {article}
   fin.entry
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%        book
+% ----  Book ----
 
 FUNCTION {book}
 { output.bibitem
@@ -1989,8 +1810,6 @@ FUNCTION {book}
   format.book.pages output.nocomma
   output.publisher.address
 
-
-
   bst.year.position #0 = not
     { format.year "year" output.check.nocomma }
     'skip$
@@ -2003,8 +1822,7 @@ FUNCTION {book}
   fin.entry
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%        booklet
+% ----  Booklet ----
 
 FUNCTION {booklet}
 { output.bibitem
@@ -2021,8 +1839,7 @@ FUNCTION {booklet}
   fin.entry
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%       inbook
+% ---- In book ----
 
 FUNCTION {inbook}
 { output.bibitem
@@ -2036,7 +1853,6 @@ FUNCTION {inbook}
     { format.year "year" output.check.nocomma }
     'skip$
   if$
-%   format.book remove.pre.comma "title" output.check.nocomma
   format.book "title" output.check.nocomma
   format.edition output.nocomma
 
@@ -2057,8 +1873,7 @@ FUNCTION {inbook}
   fin.entry
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%       incollection
+% ---- In collection ----
 
 FUNCTION {incollection}
 { output.bibitem
@@ -2087,8 +1902,7 @@ FUNCTION {incollection}
   fin.entry
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%       inproceedings
+% ---- In proceedings ----
 
 FUNCTION {inproceedings}
 { output.bibitem
@@ -2117,14 +1931,13 @@ FUNCTION {inproceedings}
   fin.entry
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%       conference
+% ---- Conference ----
 
 FUNCTION {conference}
 { inproceedings }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%       manual
+% ---- Manual ----
+
 FUNCTION {manual}
 { output.bibitem
   author empty$
@@ -2166,8 +1979,7 @@ FUNCTION {manual}
   fin.entry
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%       mastersthesis
+% ---- Master's thesis ----
 
 FUNCTION {mastersthesis}
 { output.bibitem
@@ -2193,8 +2005,7 @@ FUNCTION {mastersthesis}
   fin.entry
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%       misc
+% ---- Miscellaneous ----
 
 FUNCTION {misc}
 { output.bibitem
@@ -2219,8 +2030,7 @@ FUNCTION {misc}
   empty.misc.check
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%       Online
+% ---- Online ----
 
 FUNCTION {online}
 { output.bibitem
@@ -2245,8 +2055,7 @@ FUNCTION {online}
   empty.misc.check
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%       phdthesis
+% ---- Phd thesis ----
 
 FUNCTION {phdthesis}
 { output.bibitem
@@ -2276,8 +2085,7 @@ FUNCTION {phdthesis}
   fin.entry
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%       proceedings
+% ---- Proceedings ----
 
 FUNCTION {proceedings}
 { output.bibitem
@@ -2306,8 +2114,7 @@ FUNCTION {proceedings}
   fin.entry
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%       techreport
+% ---- Technical report ----
 
 FUNCTION {techreport}
 { output.bibitem
@@ -2326,12 +2133,14 @@ FUNCTION {techreport}
     'skip$
   if$
 
+  format.url output.nocomma
+  format.doi output.nocomma
+
   format.note output.nocomma
   fin.entry
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%       unpublished
+% ---- Unpublished ----
 
 FUNCTION {unpublished}
 { output.bibitem
@@ -2361,8 +2170,7 @@ FUNCTION {unpublished}
 FUNCTION {default.type}
 { misc }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%       Alias for month names:
+% ---- Alias for month names ----
 
 MACRO {jan} {"January"}
 MACRO {feb} {"February"}
@@ -2377,32 +2185,34 @@ MACRO {oct} {"October"}
 MACRO {nov} {"November"}
 MACRO {dec} {"December"}
 
-%%% Read entries:
+% ==== Execute commands ====
+
+% Read entries
 READ
 
-%%% Variable for remembering the order of citation.
+% Variable for remembering the order of citation
 INTEGERS { order.num }
 FUNCTION {initialize.order.num}
 {
   #1 'order.num :=
 }
-%%% Initialize a variables
+% Initialize a variables
 EXECUTE {initialize.order.num}
 
-%%% Variable for remembering the order of citation.
+% Variable for remembering the order of citation
 FUNCTION {set.order.cited}
 {
   order.num 'order.cited :=
   #1 order.num + 'order.num :=
 }
-%%% Iterate for all entries:
+% Iterate for all entries:
 ITERATE {set.order.cited}
   
-%%% Remove symbols and convert to lowercase.
+% Remove symbols and convert to lowercase.
 FUNCTION {sortify}
 { purify$ "l" change.case$ }
 
-%%% names for sorting
+% names for sorting
 FUNCTION {sort.format.names}
 { 's :=
   #1 'nameptr :=
@@ -2434,7 +2244,7 @@ FUNCTION {sort.format.names.abb}
   if$
 }
 
-%%% Label for full author name.
+% Label for full author name.
 FUNCTION {format.lab.names.full}
 { 's :=
   #1 'nameptr :=
@@ -2466,7 +2276,7 @@ FUNCTION {format.lab.names.full}
   numnames #1 = #1 #2 = and {", ed" *} {} if$
 }
 
-%%% laberl for abbreviated author name.
+% laberl for abbreviated author name
 FUNCTION {format.lab.names.abb}
 { 's :=
    s num.names$ 'numnames :=
@@ -2478,7 +2288,7 @@ FUNCTION {format.lab.names.abb}
    if$
 }
 
-%%% abbreviated author
+% Abbreviated author
 FUNCTION {author.key.label.abb}
 { author empty$
     { key empty$
@@ -2490,7 +2300,7 @@ FUNCTION {author.key.label.abb}
   if$
 }
 
-%%% full author
+% Full author
 FUNCTION {author.key.label.full}
 { author empty$
     { key empty$
@@ -2587,7 +2397,7 @@ FUNCTION {author.key.organization.key.full.wo.and}
   if$
 }
 
-%%% abbreviated author
+% Abbreviated author
 FUNCTION {author.editor.key.label.abb}
 { author empty$
     { editor empty$
@@ -2603,7 +2413,7 @@ FUNCTION {author.editor.key.label.abb}
   if$
 }
 
-%%% full author
+% Full author
 FUNCTION {author.editor.key.label.full}
 { author empty$
     { editor empty$
@@ -2679,7 +2489,7 @@ FUNCTION {editor.key.organization.label.abb}
   if$
 }
 
-%%% Convert numbers: 0->9, 1->8, 2->7,..., 9->0
+% Convert numbers: 0->9, 1->8, 2->7,..., 9->0
 FUNCTION {reverse.num}
 { 's :=
   s "1" =
@@ -2725,7 +2535,7 @@ FUNCTION {reverse.num}
   year.num
 }
 
-%%% Convert year (large number -> small number)
+% Convert year (large number -> small number)
 FUNCTION {convert.year}
 { 't := 
   bst.reverse.year #0 =
@@ -2738,7 +2548,7 @@ FUNCTION {convert.year}
   tt
 }
 
-%%% cyear
+% cyear
 FUNCTION {calc.cyear}
 { type$ "book" =
   type$ "inbook" =
@@ -2783,7 +2593,7 @@ FUNCTION {calc.sort.label.abb}
   if$
 }
 
-%%% flabel
+% flabel
 FUNCTION {calc.flabel}
 { type$ "book" =
   type$ "inbook" =
@@ -2802,7 +2612,7 @@ FUNCTION {calc.flabel}
   'flabel :=
 }
 
-%%% alabel
+% alabel
 FUNCTION {calc.alabel}
 { type$ "book" =
   type$ "inbook" =
@@ -2821,7 +2631,7 @@ FUNCTION {calc.alabel}
   'alabel :=
 }
 
-%%% title for sorting
+% Title for sorting
 FUNCTION {sort.format.title}
 { 't :=
   "A " #2
@@ -2833,7 +2643,7 @@ FUNCTION {sort.format.title}
   #1 global.max$ substring$
 }
 
-%%% author for sorting
+% Author for sorting
 FUNCTION {author.sort}
 { author empty$
     { key empty$
@@ -2847,7 +2657,7 @@ FUNCTION {author.sort}
   if$
 }
 
-%%% editor for sorting
+% Editor for sorting
 FUNCTION {author.editor.sort}
 { author empty$
     { editor empty$
@@ -2899,8 +2709,8 @@ FUNCTION {editor.organization.sort}
   if$
 }
 
-%%% 1,...,9 -> 001,...,009
-%%% 10,...,99 -> 010,...,099
+% 1,...,9 -> 001,...,009
+% 10,...,99 -> 010,...,099
 FUNCTION {add.zero.to.number}
 { 's :=
     s text.length$ #1 =
@@ -2913,7 +2723,7 @@ FUNCTION {add.zero.to.number}
    if$
 }
 
-%% entry type
+% Entry type
 FUNCTION {bst.sort.entry.type.order}
 { 'item.type :=
   item.type "article" =
@@ -2978,7 +2788,7 @@ FUNCTION {bst.sort.entry.type.order}
   if$
 }
 
-%%% Create sort.key$: absorder -> author -> year -> order -> month -> title.
+% Create sort.key$: absorder -> author -> year -> order -> month -> title.
 FUNCTION {presort.one}
 {
   bst.no.sort #0 = not
@@ -2986,7 +2796,7 @@ FUNCTION {presort.one}
     { "" }
   if$
   bst.sort.year #0 = not
-    %% Use year field as the primary sorting key.
+    % Use year field as the primary sorting key.
     { year convert.year * }
     'skip$
   if$
@@ -3068,7 +2878,7 @@ FUNCTION {presort.two}
     { "" }
   if$
   bst.sort.year #0 = not
-    %% Use year field as the primary sorting key.
+    % Use year field as the primary sorting key.
     { year convert.year * }
     'skip$
   if$
@@ -3127,21 +2937,19 @@ FUNCTION {presort.two}
   'sort.key$ :=
 }
 
-%%% alabel
+% alabel
 ITERATE {calc.alabel}
 
-%%% flabel
+% flabel
 ITERATE {calc.flabel}
 
-%%% cyear and sort.label
+% cyear and sort.label
 ITERATE {calc.cyear}
 ITERATE {calc.sort.label.abb}
 
-%%% Sorting by $sort.key (first time)
-%
+% Sorting by $sort.key (first time)
 % Sorting is done in two times. This is the first time.
-%
-% EXECUTE {presort.one.mess}
+
 ITERATE {presort.one}
 SORT
 
@@ -3205,12 +3013,12 @@ FUNCTION {reverse.pass}
   extra.label 'next.extra :=
 }
 
-%%% \bysame
+% \bysame
 ITERATE {forward.pass}
 
 REVERSE {reverse.pass}
 
-%%% Sorting by sort.key$ (second time)
+% Sorting by sort.key$ (second time)
 ITERATE {presort.two}
 SORT
 
@@ -3253,31 +3061,31 @@ FUNCTION {begin.bib}
     { preamble$ write$ newline$ }
   if$
   bst.use.bysame #0 =
-     % Not use \bysame.
+     % Not use \bysame
      'skip$
-     % Use \bysame.
-     { "%%% Definition of \bysame" write$ newline$
+     % Use \bysame
+     { "% Definition of \bysame" write$ newline$
        "\ifx\undefined\bysame" write$ newline$
        "\newcommand{\bysame}{" bst.bysame.definition * "}" *
        write$ newline$
        "\fi" write$ newline$ newline$ }
   if$
-  %% When number index is attached to the beginning of each item.
+  % When number index is attached to the beginning of each item.
   bst.use.number.index #0 =
      'skip$
      { bst.number.index.digit "1" =
-         % one digit.
+         % one digit
          { bst.number.index.bibhang.one }
          { bst.number.index.digit "2" =
-            % two digits.
+            % two digits
             { bst.number.index.bibhang.ten }
-            % three or more digits.
+            % three or more digits
             { bst.number.index.bibhang.hund }
            if$
          }
        if$
        'hang :=
-       "%%% Redefinition of \bibhang" write$ newline$
+       "% Redefinition of \bibhang" write$ newline$
        "\ifx\undefined\bibhang" write$ newline$
        "\relax" write$ newline$
        "\else" write$ newline$
@@ -3288,7 +3096,7 @@ FUNCTION {begin.bib}
   if$
   "\begin{thebibliography}{xxx}" write$ newline$
 
-  %% Initialize the variable `index'.
+  % Initialize the variable `index'.
   #0 'index :=
 }
 
@@ -3296,9 +3104,6 @@ FUNCTION {end.bib}
 { newline$ "\end{thebibliography}" write$ newline$ }
 
 EXECUTE {begin.bib}
-
 EXECUTE {init.state.consts}
-
 ITERATE {call.type$}
-
 EXECUTE {end.bib}

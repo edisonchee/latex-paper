@@ -1,25 +1,36 @@
-% --- Title  ---
-
-\pretitle{\begin{center}\bfseries\LARGE}
-
-% --- Table of contents ---
+% ---- Format table of contents ----
 
 \usepackage[subfigure]{tocloft}
+
+% Eliminate "Table of Contents"
 \renewcommand{\contentsname}{}
+
+% Font size for content & page numbers
 \renewcommand{\cftsecfont}{\normalfont}
 \renewcommand{\cftsecpagefont}{\normalfont}
+
+% Separator after content labels 
 \renewcommand{\cftsecaftersnum}{.}
 \renewcommand{\cftsubsecaftersnum}{.}
+
+% Spacing between dots
 \renewcommand{\cftdotsep}{10}
+
+% Spacing between sections
 \setlength{\cftbeforesecskip}{0em}
 
-% --- Headings ---
+% ---- Format sections ----
 
+% Section headings
 \titleformat{\section}{\centering\large\bfseries}{Appendix~\thesection.}{1em}{}
+
+% Section labels
 \renewcommand{\thesection}{\Alph{section}}
+
+% Insert page break after each section
 \newcommand{\sectionbreak}{\clearpage}
 
-% --- Numbering ---
+% ---- Format labels ----
 
 \renewcommand{\thetheorem}{A\arabic{theorem}}
 \renewcommand{\theproposition}{A\arabic{proposition}}
@@ -32,6 +43,6 @@
 \renewcommand{\thefigure}{A\arabic{figure}}
 \renewcommand{\theequation}{A\arabic{equation}}
 
-% --- Crossreferences ---
+% ---- Enable crossreferences ----
 
 \usepackage{xr}

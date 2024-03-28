@@ -1,63 +1,136 @@
-% --- Fonts ---
+% ---- Select text fonts -----
 
-\usepackage{sourceserifpro}
-\usepackage{sourcecodepro}
-\usepackage[T1]{fontenc}
-\usepackage{amsmath,amssymb,amsthm,eucal,bbold,bm}
-\usepackage[italic,eulergreek,symbolmisc]{mathastext}
-\usepackage[hyphens]{url}
-\usepackage{microtype}
-
-% Correct spacing around letters in math
-\MTsetmathskips{f}{3mu}{0mu}
-\MTsetmathskips{g}{1mu}{0mu}
-\MTsetmathskips{y}{2mu}{0mu}
-\MTsetmathskips{p}{1mu}{0mu}
-\MTsetmathskips{l}{0mu}{1mu}
-\MTsetmathskips{Q}{0mu}{1mu}
-\MTsetmathskips{j}{1mu}{1mu}
-\MTsetmathskips{i}{0mu}{1mu}
-
-% Copiable text in PDF
+% Make PDF searchable and copyable
 \input{glyphtounicode}
 \pdfgentounicode=1
 
-% --- Spacing ---
+% Select font encoding 
+\usepackage[T1]{fontenc}
 
+% Text font
+\usepackage{sourceserifpro}
+
+% Monospaced font
+\usepackage{sourcecodepro}
+
+% URL font and management
+\usepackage[hyphens]{url}
+
+% ---- Select math fonts -----
+
+% Symbol font
+\usepackage{MnSymbol}
+
+% Calligraphic and blackboard-bold fonts
+\usepackage[cal=euler,bb=fourier]{mathalpha}
+
+% Enable bold math characters
+\newcommand\hmmax{0} % Avoid "Too many math alphabets" error
+\newcommand\bmmax{0} % Avoid "Too many math alphabets" error
+\usepackage{bm}
+
+% Roman letters, Greek letters, digits, and punctuation
+\usepackage[italic,eulergreek,nolessnomore,noparenthesis,noplusnominus,noequal,nohbar]{mathastext}
+
+% Correct spacing around certain Roman letters
+\MTsetmathskips{f}{3mu}{0mu}
+\MTsetmathskips{y}{2mu}{0mu}
+\MTsetmathskips{p}{2mu}{0mu}
+\MTsetmathskips{j}{2mu}{0mu}
+
+% ---- Adjust page layout ----
+
+\usepackage{geometry}
+
+% Top margin
+\geometry{top=1in}
+
+% Bottom margin
+\geometry{bottom=1.2in}
+
+% Side margins
+\geometry{left=1.3in,right=1.3in}
+
+% Placement of page number
+\geometry{footskip=0.7in}
+
+% ---- Adjust spacing ----
+
+% Spacing between lines
 \usepackage[onehalfspacing]{setspace}
+
+% Spacing on lines
+\usepackage{microtype}
+
+% Spacing in text
 \AtBeginDocument{\frenchspacing}
 
-% --- Color ---
+% ---- Select color scheme ----
 
 \usepackage[x11names]{xcolor}
 
-% --- Title page ---
+% ---- Format headers & footers ----
 
-% Title font
+\usepackage{fancyhdr,xparse}
+
+% Eliminate header line
+\renewcommand{\headrule}{}
+
+% Place centered page number at foot of regular pages
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+
+% Place URL and publication information at foot of title page
+\fancypagestyle{plain}{\fancyhf{}}
+\NewDocumentCommand{\available}{o g}{%
+\fancypagestyle{plain}{\fancyfoot[C]{\color{gray}\footnotesize%
+\IfValueT{#1}{Published in \emph{#1}\;\textbullet\;}%
+Available at \url{#2}}}}
+
+% ---- Format title page ----
+
 \usepackage{titling}
+
+% Title
 \pretitle{\begin{center}\bfseries\huge} 
 
-% No thanks mark
+% Eliminate thanks mark
 \renewcommand{\tamark}{}
 \setlength{\thanksmarkwidth}{0em}
 \setlength{\thanksmargin}{0em}
 
-% No indentation for abstract
+% Eliminate indentation in abstract
 \usepackage{etoolbox}
 \AtBeginEnvironment{titlepage}{\pagestyle{empty}\setlength{\parindent}{0pt}}
 
-% --- Headings ---
+% ---- Format headings ----
 
 \usepackage{titlesec}
+
+% Section headings
 \titleformat*{\section}{\centering\large\bfseries}
+
+% Subsection headings
 \titleformat*{\subsection}{\bfseries}
+
+% Paragraph headings
 \titleformat{\paragraph}[runin]{\itshape}{}{}{}[.]
+
+% Heading numbers
 \titlelabel{\thetitle.\quad}
 
-% --- Theorems & proofs ---
+% ---- Format theorems & proofs ----
 
-\newtheoremstyle{paper}{}{}{\itshape}{}{\scshape}{.}{.5em}{}
+\usepackage{amsthm}
+
+% Define theorem style
+\newtheoremstyle{paper}{}{}{\itshape}{}{\scshape}{.}{0.5em}{}
+
+% Apply theorem style
 \theoremstyle{paper}
+
+% Define theorems
 \newtheorem{theorem}{theorem}
 \newtheorem{proposition}{proposition}
 \newtheorem{lemma}{lemma}
@@ -66,58 +139,87 @@
 \newtheorem{assumption}{assumption}
 \newtheorem{remark}{remark}
 
-% Proof label font
+% Reformat proof heading
 \renewcommand{\proofname}{\upshape\scshape proof}
 
-% --- Tables & figures ---
+% ---- Format tables & figures ----
 
-\usepackage{multirow,booktabs,rotating,graphicx}
+\usepackage{booktabs,graphicx}
+
+% Enable rotation of tables & figures
+\usepackage{rotating}
+
+% Enable  multiple rows in table
+\usepackage{multirow}
+
+% Allow small figures & tables to be on their own page
 \renewcommand{\floatpagefraction}{0}
-\renewcommand{\arraystretch}{1.1}
-\renewcommand{\figurename}{\textsc{figure}}
-\renewcommand{\tablename}{\textsc{table}}
-\BeforeBeginEnvironment{tabular*}{\footnotesize}
-\AtBeginDocument{\allowdisplaybreaks[1]}
 
-% Captions
-\usepackage{caption,subcaption}
-\captionsetup{labelsep=period}
-\captionsetup[sub]{labelformat=simple,labelsep=period,size=footnotesize}
-\captionsetup[table]{position=top}
-\renewcommand{\thesubfigure}{\Alph{subfigure}}
-
-% Centered figures & tables
+% Center figures & tables
 \makeatletter\g@addto@macro\@floatboxreset\centering\makeatother 
 
-% Notes below tables & figures
+% Spacing in tables
+\renewcommand{\arraystretch}{1.1}
+
+% Font size in tables
+\BeforeBeginEnvironment{tabular*}{\footnotesize}
+
+% All captions
+\usepackage{caption,subcaption}
+\captionsetup{labelsep=period}
+
+% Table captions
+\captionsetup[table]{position=top}
+\renewcommand{\tablename}{\textsc{table}}
+
+% Figure captions
+\renewcommand{\figurename}{\textsc{figure}}
+
+% Subfigure captions
+\captionsetup[sub]{labelformat=simple,labelsep=period,size=footnotesize}
+\renewcommand{\thesubfigure}{\Alph{subfigure}}
+
+% Create note for tables & figures
 \newcommand{\note}[2][]{\parbox{\textwidth}{\footnotesize\vspace*{10pt}\textit{#1}#2}}
 
-% Spacing in figures
-\newcommand{\fspace}{\\\vspace*{4mm}}
+% ---- Format equations ----
 
-% --- Lists ---
+% Tolerance for page breaks in multiline equations
+\AtBeginDocument{\allowdisplaybreaks[1]}
+
+% ---- Format lists ----
 
 \usepackage{enumitem}
-\setlist{nosep}
+
+% Itemized lists
 \setlist[itemize,1]{leftmargin=\parindent,label=\color{gray}{\upshape\textbullet}}
 \setlist[itemize,2]{leftmargin=2\parindent,label=\color{gray}{\upshape\textendash}}
+
+% Numbered lists
 \setlist[enumerate,1]{leftmargin=\parindent,label=\color{gray}{\upshape\alph*.}}
 \setlist[enumerate,2]{leftmargin=2\parindent,label=\color{gray}{\upshape\roman*.}}
 
-% --- Bibliography ---
+% Eliminate extra spacing between items
+\setlist{nosep}
+
+% ---- Format bibliography ----
 
 \usepackage{natbib}
+
+% Author-year separation in citation
 \setcitestyle{aysep={}}
-\renewcommand{\bibfont}{\small}
+
+% Spacing between references
 \setlength{\bibsep}{0pt}
-\setlength{\bibhang}{1.5em}
 
-% Reduced spacing in bibliography
-\AtBeginEnvironment{thebibliography}{\setstretch{1.1}}
+% Indentation of references
+\setlength{\bibhang}{\parindent}
 
-% --- Appendix ---
+% ---- Format appendix ----
 
 \AfterEndEnvironment{thebibliography}{
+%
+% Reset counters
 \setcounter{theorem}{0}
 \setcounter{proposition}{0} 
 \setcounter{lemma}{0}
@@ -128,6 +230,8 @@
 \setcounter{table}{0}
 \setcounter{figure}{0}
 \setcounter{equation}{0} 
+%
+% Add "A" in front of labels
 \renewcommand{\thetheorem}{A\arabic{theorem}}
 \renewcommand{\theproposition}{A\arabic{proposition}}
 \renewcommand{\thelemma}{A\arabic{lemma}}
@@ -138,31 +242,10 @@
 \renewcommand{\thetable}{A\arabic{table}}
 \renewcommand{\thefigure}{A\arabic{figure}}
 \renewcommand{\theequation}{A\arabic{equation}}
+%
+% Add "Appendix" in front of section label
 \titleformat{\section}{\centering\large\bfseries}{Appendix~\thesection.}{1em}{}}
 
-% --- Hyperlinks (last package) ---
+% ---- Enable hyperlinks  ----
 
-\usepackage{fancyhdr} % Before hyperref
 \usepackage[pdftex,hidelinks,hypertexnames=false,pdfpagemode=UseNone,pdfdisplaydoctitle=true]{hyperref}
-
-% --- Layout (after hyperref) ---
-
-\usepackage[margin=1.1in,footskip=0.7in]{geometry}
-
-% --- Headers & footers (after hyperref & geometry) ---
-
-% No header line
-\renewcommand{\headrule}{}
-
-% Centered page numbers on regular pages
-\pagestyle{fancy}
-\fancyhf{}
-\fancyfoot[C]{\thepage}
-
-% Footers for title pages
-\fancypagestyle{plain}{\fancyhf{}}
-\usepackage{xparse}
-\NewDocumentCommand{\available}{o g}{%
-\fancypagestyle{plain}{\fancyfoot[C]{\color{gray}\footnotesize%
-\IfValueT{#1}{Published in \emph{#1}\;\textbullet\;}%
-Available at \url{#2}}}}
