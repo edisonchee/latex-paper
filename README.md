@@ -35,6 +35,16 @@ The repository also includes files to produce an online appendix—in case the p
 + The LaTeX style file `appendix.sty` collects additional commands to format the online appendix. It must be included in the same folder as `appendix.tex`. It can be modified to alter the format of the online appendix. It works in conjunction with `paper.sty`, which must be included in the same folder. 
 + The file `appendix.pdf` is not required to use the template. It only illustrate the output of the template, and will be overridden once `appendix.tex` is compiled.
 
+## Submission to arXiv
+
+The template is perfectly compatible with [arXiv](https://arxiv.org/). A paper based on the template can be submitted to arXiv in just three steps once it has been compiled with pdfTeX:
+
+1. Adjust the preamble of the source file `paper.tex`: on line 3, replace `\bibliographystyle{bibliography}` by `\pdfoutput=1`. The `\bibliographystyle{bibliography}` command is not needed because arXiv produces the bibliography directly from the `paper.bbl` file. The `\pdfoutput=1` is required because the paper is compiled with pdfTeX.
+2. Collect the required files into a folder. There should be four files: the source file `paper.tex`, the bibliography file `paper.bbl`, the style file `paper.sty`, and the figure file `figures.pdf`. 
+3. Zip the folder and upload the zipped file to arXiv.
+
+The `arXiv` folder illustrates how the template should be prepared for submission to arXiv. The folder contains the four required files: `paper.tex`, `paper.bbl`, `paper.sty`, and `figures.pdf`. Furthermore, the preamble of `paper.tex` is adjusted appropriately. After being zipped, the folder could be uploaded to arXiv and would compile properly.
+
 ## Software
 
 The template was developed, tested, and validated on a Mac with the MacTeX-2023 distribution. Hopefully, it should also work on other machines and with other distributions.
