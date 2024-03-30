@@ -115,7 +115,7 @@ Here are some capital Greek letters in another math display:
 F(\Psi) - G(\Phi) \times \Delta^{10} = \Sigma \cdot \Omega^2 - \frac{\Lambda_i}{\Theta_j} \cdot \frac{\Gamma(x)}{\Pi(t)}.
 \label{e:capitalgreek}\end{equation}
 
-Some but not all the variants of the standard Greek letters are available. There is a variant for theta ($\vartheta \neq \theta$), for epsilon ($\varepsilon \neq \epsilon$), for pi ($\varpi \neq \pi$), and for phi ($\varphi \neq \phi$). But there is no available variant for sigma and kappa.
+Some but not all the variants of the standard Greek letters are available. There is a variant for theta ($\vartheta \neq \theta$), for epsilon ($\varepsilon \neq \epsilon$), for pi ($\varpi \neq \pi$), and for phi ($\varphi \neq \phi$). But there is no available variant for sigma (\texttt{varsigma} gives $\varsigma = \sigma$), rho (\texttt{varrho} gives $\varrho = \rho$), and kappa (\texttt{varkappa} gives an error).
 
 \subsection{Calligraphic letters} 
 
@@ -156,11 +156,11 @@ Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac tu
 
 This subsection illustrates how the different math fonts fit together. The equations below combine various characters together.
 
-First, here are equations in text. Lorem ipsum dolor sit amet, consectetur adipiscing elit: $\prod_i\alpha_i(X) \geq 2 \cdot\prod_u a_u(Z) \propto \mathcal{X} \sim 5.2\pi \leadsto +\infty$. Lorem ipsum dolor sit amet, consectetur adipiscing elit: $\sum_{x=1}^4 \xi^x(j)=0, \; \forall j\in \mathbb{R}$. Here are some other expressions: $\mathcal{R}(z) = \max\{T_1,\ldots,T_{n}\} > \hat{z}$, and  $\mathbb{P}(T_n < z) = 1 - S(z) = F(z)$.  Sed vehicula ultrices odio, vitae maximus justo convallis at. Fusce quis consequat arcu: $\alpha^* = S(z^*)$ and $S^*(z^*)=\mathbb{E}[\bm{\alpha}\mid \beta]$. Integer non ante eget purus aliquet consequat. Mauris ut dui nec ligula consectetur commodo.
+First, here are equations in text. Lorem ipsum dolor sit amet, consectetur adipiscing elit: $\prod_i\alpha_i(X) \geq 2 \cdot [\partial a_u(Z)/\partial Z] \propto \mathcal{X} \sim 5.2\pi \leadsto +\infty$. Lorem ipsum dolor sit amet, consectetur adipiscing elit: $\sum_{x=1}^4 \xi^x(j)=0, \; \forall j\in \mathbb{R}$. Here are some other expressions: $\mathcal{R}(z) = \max\{T_1,\ldots,T_{n}\} > \hat{z}$, and  $\mathbb{P}(T_n < z) = 1 - S(z) = F(z)$.  Sed vehicula ultrices odio, vitae maximus justo convallis at. Fusce quis consequat arcu: $\alpha^* = S(z^*)$ and $S^*(z^*)=\mathbb{E}[\bm{\alpha}\mid \beta]$. Integer non ante eget purus aliquet consequat. Mauris ut dui nec ligula consectetur commodo.
 
 Here are equations in display mode, without labels:
 \begin{align*}
-\frac{\mathcal{S}(u^*)}{1 -\ln(\theta) + \left[\gamma^\eta\right] - \mathcal{G}(z^*)} &= \sum_{i=0}^{+\infty}F^{i} - \Lambda(i) \geq \left\lbrace\sum_{i=0}^{+\infty}G^{i} - \Omega(i)\right\rbrace\\
+\frac{\mathcal{S}(u^*)}{1 - \frac{\partial \ln(\theta)}{\partial \theta} + \left[\gamma^\eta\right] - \mathcal{G}(z^*)} &= \sum_{i=0}^{+\infty}\frac{d F^{i}(x)}{d x} - \Lambda(i) \geq \left\lbrace\sum_{i=0}^{+\infty}G^{i} - \Omega(i)\right\rbrace\\
 \frac{\mathbb{Q}(z^*)}{1 -\mu + \exp(\xi) \times \mathbb{M}(z^*)} &= \prod_{i=0}^{+\infty}F^{i} - \Phi(i) \neq \left(\int_{0}^{+\infty}\frac{G^{i}}{\epsilon(i)} di\right).
 \end{align*}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula ultrices odio, vitae maximus justo convallis at. Fusce quis consequat arcu. Integer non ante eget purus aliquet consequat. Mauris ut dui nec ligula consectetur commodo.
