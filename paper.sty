@@ -176,7 +176,7 @@ Available at \url{#2}}}}
 \renewcommand{\figurename}{\textsc{figure}}
 
 % Subfigure captions
-\captionsetup[sub]{labelformat=simple,labelsep=period,size=footnotesize}
+\captionsetup[sub]{labelformat=simple,labelsep=period,size=small}
 \renewcommand{\thesubfigure}{\Alph{subfigure}}
 
 % Create note for tables & figures
@@ -208,6 +208,9 @@ Available at \url{#2}}}}
 
 % Author-year separation in citation
 \setcitestyle{aysep={}}
+
+% Font size
+\renewcommand{\bibfont}{\small}
 
 % Spacing between references
 \setlength{\bibsep}{0pt}
