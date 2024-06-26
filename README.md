@@ -47,7 +47,7 @@ The `arXiv` folder illustrates how the template should be prepared for submissio
 
 ## Software
 
-The template was developed, tested, and validated on a Mac with the MacTeX-2023 distribution. Hopefully, it should also work on other machines and with other distributions.
+The template was tested and validated on a Mac with the MacTeX-2023 distribution. While it should also work on other operating systems and with other LaTeX distributions, compatibility cannot be guaranteed. Users on Windows or Linux systems, or those using different LaTeX distributions, may need to make minor adjustments. Please report any compatibility issues or bugs you encounter to help improve cross-platform support.
 
 ## License
 
@@ -55,9 +55,9 @@ The content of this repository is licensed under the terms of the MIT License.
 
 ## Real-world implementations
 
++ [u* = √uv](https://arxiv.org/pdf/2206.13012v2.pdf) ([source code](https://arxiv.org/e-print/2206.13012v2))
 + [Moen Meets Rotemberg: An Earthly Model of the Divine Coincidence](https://arxiv.org/pdf/2401.12475v1.pdf) ([source code](https://arxiv.org/e-print/2401.12475v1))
 + [Modeling the Displacement of Native Workers by Immigrants](https://arxiv.org/pdf/2303.13319v2.pdf) ([source code](https://arxiv.org/e-print/2303.13319v2))
-+ [u* = √uv](https://arxiv.org/pdf/2206.13012v1.pdf) ([source code](https://arxiv.org/e-print/2206.13012v1))
 + [Critical Values Robust to P-hacking](https://arxiv.org/pdf/2005.04141v7.pdf) ([source code](https://arxiv.org/e-print/2005.04141v7))
 
 ## Related resources
