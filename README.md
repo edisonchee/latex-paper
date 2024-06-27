@@ -47,7 +47,9 @@ The `arXiv` folder illustrates how the template should be prepared for submissio
 
 ## Software
 
-The template was tested and validated on a Mac with the MacTeX-2023 distribution. While it should also work on other operating systems and with other LaTeX distributions, compatibility cannot be guaranteed. Users on Windows or Linux systems, or those using different LaTeX distributions, may need to make minor adjustments. Please report any compatibility issues or bugs you encounter to help improve cross-platform support.
+The template was developed, tested, and validated on a Mac with the MacTeX-2023 distribution. 
+
+While the template should also work on other operating systems and with other LaTeX distributions, compatibility cannot be guaranteed. Users on Windows or Linux systems, or those using different LaTeX distributions, may need to make minor adjustments. Please report any compatibility issues or bugs you encounter to help improve cross-platform support.
 
 ## License
 
