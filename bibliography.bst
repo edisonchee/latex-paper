@@ -1149,7 +1149,7 @@ FUNCTION {format.title}
 FUNCTION {format.misc.title}
 { title empty$
     { "" }
-    { bst.title.pre title * bst.title.post * }
+    { bst.title.pre title * bst.title.post * remove.irrelevant.period.comma}
   if$
 }
 
