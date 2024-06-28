@@ -7,21 +7,21 @@
 % Select font encoding 
 \usepackage[T1]{fontenc}
 
-% Text font
+% Select text font
 \usepackage{sourceserifpro}
 
-% Monospaced font
+% Select monospaced font
 \usepackage{sourcecodepro}
 
-% URL font and management
+% Select URL font
 \usepackage[hyphens]{url}
 
 % ---- Select math fonts -----
 
-% Symbol font
+% Select symbol font
 \usepackage{MnSymbol}
 
-% Calligraphic and blackboard-bold fonts
+% Select calligraphic and blackboard-bold fonts
 \usepackage[cal=euler,bb=fourier]{mathalpha}
 
 % Enable bold math characters
@@ -29,7 +29,7 @@
 \newcommand\bmmax{0} % Avoid "Too many math alphabets" error
 \usepackage{bm}
 
-% Roman letters, Greek letters, digits, and punctuation
+% Select font for Roman letters, Greek letters, digits, and punctuation
 \usepackage[italic,eulergreek,nolessnomore,noparenthesis,noplusnominus,noequal,nohbar]{mathastext}
 
 % Correct spacing around certain Roman letters
@@ -40,49 +40,58 @@
 
 % ---- Adjust page layout ----
 
+% Customize page dimensions
 \usepackage{geometry}
 
-% Top margin
+% Set top margin
 \geometry{top=1in}
 
-% Bottom margin
+% Set bottom margin
 \geometry{bottom=1.2in}
 
-% Side margins
+% Set side margins
 \geometry{left=1.3in,right=1.3in}
 
-% Placement of page number
+% Set placement of page number
 \geometry{footskip=0.7in}
 
 % ---- Adjust spacing ----
 
-% Spacing between lines
+% Set spacing between lines
 \usepackage[onehalfspacing]{setspace}
 
-% Spacing on lines
+% Set spacing on lines
 \usepackage{microtype}
 
-% Spacing in text
+% Set spacing in text
 \AtBeginDocument{\frenchspacing}
 
 % ---- Select color scheme ----
 
 \usepackage[x11names]{xcolor}
 
-% ---- Format headers & footers ----
+% ---- Format header and footer ----
 
-\usepackage{fancyhdr,xparse}
+% Customize headers and footers
+\usepackage{fancyhdr}
+
+% Activate custom header and footer
+\pagestyle{fancy}
 
 % Eliminate header line
 \renewcommand{\headrule}{}
 
-% Place centered page number at foot of regular pages
-\pagestyle{fancy}
+% Clear header and footer
 \fancyhf{}
+\fancypagestyle{plain}{\fancyhf{}}
+
+% Place centered page number at foot of regular pages
 \fancyfoot[C]{\thepage}
 
+% Define custom commands with complex argument specifications
+\usepackage{xparse}
+
 % Place URL and publication information at foot of title page
-\fancypagestyle{plain}{\fancyhf{}}
 \NewDocumentCommand{\available}{o g}{%
 \fancypagestyle{plain}{\fancyfoot[C]{\color{gray}\footnotesize%
 \IfValueT{#1}{Published in \emph{#1}\;\textbullet\;}%
@@ -90,9 +99,10 @@ Available at \url{#2}}}}
 
 % ---- Format title page ----
 
+% Customize title, author, and date
 \usepackage{titling}
 
-% Title
+% Format title
 \pretitle{\begin{center}\bfseries\Huge} 
 
 % Eliminate thanks mark
@@ -100,28 +110,32 @@ Available at \url{#2}}}}
 \setlength{\thanksmarkwidth}{0em}
 \setlength{\thanksmargin}{0em}
 
-% Eliminate indentation in abstract
+% Enable advanced programming features
 \usepackage{etoolbox}
+
+% Eliminate indentation in abstract
 \AtBeginEnvironment{titlepage}{\pagestyle{empty}\setlength{\parindent}{0pt}}
 
-% ---- Format headings ----
+% ---- Format section headings ----
 
+% Customize section headings
 \usepackage{titlesec}
 
-% Section headings
+% Format section headings
 \titleformat*{\section}{\centering\large\bfseries}
 
-% Subsection headings
+% Format subsection headings
 \titleformat*{\subsection}{\bfseries}
 
-% Paragraph headings
+% Format paragraph headings
 \titleformat{\paragraph}[runin]{\itshape}{}{}{}[.]
 
-% Heading numbers
+% Add period after heading numbers
 \titlelabel{\thetitle.\quad}
 
-% ---- Format theorems & proofs ----
+% ---- Format theorems and proofs ----
 
+% Enhance theorem environments
 \usepackage{amsthm}
 
 % Define theorem style
@@ -139,63 +153,75 @@ Available at \url{#2}}}}
 \newtheorem{assumption}{assumption}
 \newtheorem{remark}{remark}
 
-% Reformat proof heading
+% Format proof heading
 \renewcommand{\proofname}{\upshape\scshape proof}
 
-% ---- Format tables & figures ----
+% ---- Format figures and tables ----
 
-\usepackage{booktabs,graphicx}
+% Include graphics
+\usepackage{graphicx}
 
-% Enable rotation of tables & figures
+% Enhance table formatting
+\usepackage{booktabs}
+
+% Enable rotation of tables and figures
 \usepackage{rotating}
 
-% Enable  multiple rows in table
+% Enable multiple rows in table
 \usepackage{multirow}
 
-% Allow small figures & tables to be on their own page
+% Allow small figures and tables to be on their own page
 \renewcommand{\floatpagefraction}{0}
 
-% Center figures & tables
+% Center figures and tables
 \makeatletter\g@addto@macro\@floatboxreset\centering\makeatother 
 
-% Spacing in tables
+% Adjust spacing in tables
 \renewcommand{\arraystretch}{1.1}
 
-% Font size in tables
+% Set font size in tables
 \BeforeBeginEnvironment{tabular*}{\footnotesize}
 
-% All captions
-\usepackage{caption,subcaption}
-\captionsetup{labelsep=period}
-
-% Table captions
-\captionsetup[table]{position=top}
+% Write "table" and "figure" in small caps 
 \renewcommand{\tablename}{\textsc{table}}
-
-% Figure captions
 \renewcommand{\figurename}{\textsc{figure}}
 
-% Subfigure captions
+% Customize captions and subcaptions
+\usepackage{caption,subcaption}
+
+% Format captions
+\captionsetup{labelsep=period}
+
+% Place table captions above table
+\captionsetup[table]{position=top}
+
+% Format subcaptions
 \captionsetup[sub]{labelformat=simple,labelsep=period,size=small}
+
+% Write figure sublabels in Roman caps
 \renewcommand{\thesubfigure}{\Alph{subfigure}}
 
-% Create note for tables & figures
-\newcommand{\note}[2][]{\parbox{\textwidth}{\footnotesize\vspace*{10pt}\textit{#1}#2}}
+% Create note for tables and figures
+\NewDocumentCommand{\note}{o g}{%
+\parbox{\textwidth}{\footnotesize\vspace*{10pt}%
+\IfValueT{#1}{\textit{#1}:\quad}%
+#2}}
 
 % ---- Format equations ----
 
-% Tolerance for page breaks in multiline equations
+% Set tolerance for page breaks in multiline equations
 \AtBeginDocument{\allowdisplaybreaks[1]}
 
 % ---- Format lists ----
 
+% Customize lists
 \usepackage{enumitem}
 
-% Itemized lists
+% Format itemized lists
 \setlist[itemize,1]{leftmargin=\parindent,label=\color{gray}{\upshape\textbullet}}
 \setlist[itemize,2]{leftmargin=2\parindent,label=\color{gray}{\upshape\textendash}}
 
-% Numbered lists
+% Format numbered lists
 \setlist[enumerate,1]{leftmargin=\parindent,label=\color{gray}{\upshape\alph*.}}
 \setlist[enumerate,2]{leftmargin=2\parindent,label=\color{gray}{\upshape\roman*.}}
 
@@ -204,18 +230,19 @@ Available at \url{#2}}}}
 
 % ---- Format bibliography ----
 
+% Enhance bibliography
 \usepackage{natbib}
 
-% Author-year separation in citation
+% Eliminate author-year separation in citations
 \setcitestyle{aysep={}}
 
-% Font size
+% Set font size in bibliography
 \renewcommand{\bibfont}{\small}
 
-% Spacing between references
+% Set spacing between references
 \setlength{\bibsep}{0pt}
 
-% Indentation of references
+% Set indentation of references
 \setlength{\bibhang}{\parindent}
 
 % ---- Format appendix ----

@@ -1,30 +1,33 @@
 % ---- Format table of contents ----
 
+% Customize table of contents
 \usepackage[subfigure]{tocloft}
 
 % Eliminate "Table of Contents"
 \renewcommand{\contentsname}{}
 
-% Font size for content & page numbers
+% Set font size for content
 \renewcommand{\cftsecfont}{\normalfont}
+
+% Set font size for page numbers
 \renewcommand{\cftsecpagefont}{\normalfont}
 
-% Separator after content labels 
+% Set separator after labels
 \renewcommand{\cftsecaftersnum}{.}
 \renewcommand{\cftsubsecaftersnum}{.}
 
-% Spacing between dots
+% Set spacing between dots
 \renewcommand{\cftdotsep}{10}
 
-% Spacing between sections
+% Set spacing between sections
 \setlength{\cftbeforesecskip}{0em}
 
 % ---- Format sections ----
 
-% Section headings
+% Format section headings
 \titleformat{\section}{\centering\large\bfseries}{Appendix~\thesection.}{1em}{}
 
-% Section labels
+% Format section labels
 \renewcommand{\thesection}{\Alph{section}}
 
 % Insert page break after each section
@@ -32,6 +35,7 @@
 
 % ---- Format labels ----
 
+% Add "A" in front of labels
 \renewcommand{\thetheorem}{A\arabic{theorem}}
 \renewcommand{\theproposition}{A\arabic{proposition}}
 \renewcommand{\thelemma}{A\arabic{lemma}}
