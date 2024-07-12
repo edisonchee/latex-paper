@@ -23,7 +23,7 @@ Landais, Camille, Pascal Michaillat, and Emmanuel Saez. 2018b. ``A
 \harvarditem[McCloskey and Michaillat]{McCloskey and Michaillat}{2024}{MM24}
 McCloskey, Adam, and Pascal Michaillat. 2024. ``Critical Values Robust to
   P-hacking.'' \textit{Review of Economics and Statistics}.
-  \url{https://pascalmichaillat.org/12/}.
+  \url{https://doi.org/10.1162/rest_a_01456}.
 
 \harvarditem[Michaillat]{Michaillat}{2012}{M12}
 Michaillat, Pascal. 2012. ``Do Matching Frictions Explain Unemployment? Not in
@@ -56,8 +56,8 @@ Michaillat, Pascal, and Emmanuel Saez. 2021b. ``Resolving {N}ew {K}eynesian
   and Statistics} 103 (2):  197--215.
   \url{https://doi.org/10.1162/rest_a_00893}.
 
-\harvarditem[Michaillat and Saez]{Michaillat and Saez}{2023}{MS23}
-Michaillat, Pascal, and Emmanuel Saez. 2023. ``$u^* = \sqrt{uv}$.''
+\harvarditem[Michaillat and Saez]{Michaillat and Saez}{2024}{MS23}
+Michaillat, Pascal, and Emmanuel Saez. 2024. ``$u^* = \sqrt{uv}$.''
   arXiv:2206.13012. \url{https://doi.org/10.48550/arXiv.2206.13012}.
 
 \end{thebibliography}
