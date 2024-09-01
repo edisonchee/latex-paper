@@ -414,11 +414,11 @@ FUNCTION {bst.url.post}
 
 % String before access
 FUNCTION {bst.access.pre}
-{ ", accessed on " }
+{ " (Accessed: " }
 
 % String after access
 FUNCTION {bst.access.post}
-{ "" }
+{ ")" }
 
 % ----  DOI (if "doi" field is present) ----
 
@@ -820,14 +820,10 @@ FUNCTION {format.book}
 FUNCTION {format.url}
 { url empty$
     { "" }
-    { type$ "online" = bst.show.url or
-        { bst.url.pre * url * bst.url.post *
-          access empty$
-             { "" * }
-             { bst.access.pre * access * bst.access.post * }
-          if$
-        }
-        { "" }
+    { "URL \url{" url * "}" *
+      access empty$
+         { "" * }
+         { bst.access.pre * access * bst.access.post * }
       if$
     }
   if$
@@ -983,7 +979,7 @@ FUNCTION {compare.names.aer}
       s i.aer "{ff }{vv }{ll}{ jj}" format.name$
       =
         { #1 i.aer <
-            { " and " * }       % \bysame ‚ÅÈ—ª‚·‚é’˜ŽÒ‚Ì‘O‚É‚Â‚­ and 
+            { " and " * }       % \bysame ï¿½ï¿½È—ï¿½ï¿½ï¿½ï¿½é’˜ï¿½Ò‚Ì‘Oï¿½É‚Â‚ï¿½ and 
             { }
           if$
           "\bysame{}" *
